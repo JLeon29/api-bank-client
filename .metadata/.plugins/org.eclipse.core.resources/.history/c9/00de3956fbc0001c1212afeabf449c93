@@ -1,0 +1,13 @@
+package com.nttdata.client.repository;
+
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+
+import com.nttdata.client.model.ClientType;
+
+import reactor.core.publisher.Mono;
+
+public interface ClientTypeRepository extends ReactiveMongoRepository<ClientType, String> {
+	
+	Mono<ClientType> findByCode(String code);
+
+}

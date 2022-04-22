@@ -1,0 +1,17 @@
+package com.nttdata.client.model;
+
+
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
+public class CrediCart {
+	
+	private String id;
+    private String accountNumber;
+    private Double creditLine;
+    private Double balance;
+    private String idClient;
+}
+
+}

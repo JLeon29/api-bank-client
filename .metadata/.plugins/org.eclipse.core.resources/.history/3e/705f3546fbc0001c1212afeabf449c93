@@ -1,0 +1,60 @@
+package com.nttdata.client.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nttdata.client.model.Client;
+import com.nttdata.client.repository.ClientRepository;
+import com.nttdata.client.service.IClientService;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+public class ClientServiceImpl implements IClientService {
+	
+	@Autowired
+	private ClientRepository clientRepository;
+
+	@Override
+	public Mono<Client> create(Client client) {
+		
+		return clientRepository.save(client);
+	}
+
+	@Override
+	public Flux<Client> getClients() {
+		
+		return clientRepository.findAll();
+	}
+
+	@Override
+	public Mono<Client> getClientById(String id) {
+		
+		return clientRepository.findById(id);
+	}
+
+	@Override
+	public Mono<Client> getClientByName(String name) {
+		
+		return clientRepository.findByName(name);
+	}
+
+	@Override
+	public Mono<Client> getClientByClientIdNumber(String clientNumber) {
+		
+		return clientRepository.findByClientIdNumber(clientNumber);
+	}
+
+	@Override
+	public Mono<Client> updateClient(Client client) {
+		
+		return clientRepository.save(client);
+	}
+
+	@Override
+	public Mono<Void> deleteClient(Client client) {
+		
+		return clientRepository.delete(client);
+	}
+
+	
+}
